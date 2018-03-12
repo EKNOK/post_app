@@ -3,9 +3,13 @@
   <div class="alert alert-info">
     <%= notice %>
   </div>
-  <% elsif %>
+  <% elsif alert %>
   <div class="alert alert-success">
     <%= alert %>
+  </div>
+  <% else  %>
+  <div class="alert alert-<%= message_type %>">
+    <%= message %>
   </div>
   <% end %>
 <% end %>

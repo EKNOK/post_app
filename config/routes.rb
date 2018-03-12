@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
-  # devise for users 
+  # devise for users
   devise_for :users
-
+  # users
+  resources :users, only:[:index, :show, :edit, :update]
 
   # HOME
   root to: 'home#index'
