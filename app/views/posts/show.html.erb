@@ -2,12 +2,16 @@
   <h1>Post#show</h1>
   <h1><%= @post.title %></h1>
   <h2><%= @post.content %></h2>
+  <% if current_user == @post.user  %>
   <h2><%= link_to "postを削除", post_path, method: 'delete' %></h2>
+  <% end %>
   <div class="">
     <% if @reposts %>
       <% @reposts.each do |repost| %>
         <h2><%= repost.user.name %> : <%= repost.content %>
-          <%= link_to "削除", repost_path(repost), method: 'delete' %>
+          <% if current_user == repost.user %>
+            <%= link_to "削除", repost_path(repost), method: 'delete' %>
+          <% end %>
         </h2>
       <% end %>
     <% end %>
