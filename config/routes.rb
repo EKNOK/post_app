@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   # reposts
-  resources :reposts, only:[:index, :new, :create, :destroy]
+  resources :reposts, only:[:create, :destroy]
   # posts
   resources :posts, only:[:index, :show, :new, :create, :destroy]
 

@@ -9,6 +9,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @reposts = @post.reposts.where(post_id: params[:id])
+    @repost = @post.reposts.build
   end
 
   def new
@@ -27,7 +29,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find_by(id: params[:id])
     @post.destroy
     flash[:success] = "Post Destroy !"
     redirect_to posts_path

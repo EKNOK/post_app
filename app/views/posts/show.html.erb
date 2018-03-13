@@ -3,9 +3,19 @@
   <h1><%= @post.title %></h1>
   <h2><%= @post.content %></h2>
   <h2><%= link_to "postを削除", post_path, method: 'delete' %></h2>
+  <div class="">
+    <% if @reposts %>
+      <% @reposts.each do |repost| %>
+        <h2><%= repost.user.name %> : <%= repost.content %>
+          <%= link_to "削除", repost_path(repost), method: 'delete' %>
+        </h2>
+      <% end %>
+    <% end %>
+  </div>
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
       <!-- form do -->
+      <%= render 'reposts/new' %>
 
       <!-- end -->
     </div>
