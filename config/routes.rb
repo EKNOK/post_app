@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
 
+
+  # post_forces
+  get 'post_forces/index', to: 'post_forces#index'
+  get 'post_forces/hoge', to: 'post_forces#hoge'
   # reposts
   resources :reposts, only:[:create, :destroy]
   # posts
   resources :posts, only:[:index, :show, :new, :create, :destroy]
-
   # devise for users
   devise_for :users
   # users

@@ -7,7 +7,7 @@ D3.js - forces
 [deviseの設定](https://ticklecode.com/devise/)  
 [`devise-bootstrap-views`の設定](https://qiita.com/guri3/items/8c414558085620999786)  
 [replyにcommentする](https://teratail.com/questions/49857)  
-
+[hidden_field_tag](http://sakurawi.hateblo.jp/entry/hidden_field)
 
 
 # Version
