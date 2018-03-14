@@ -7,9 +7,10 @@ D3.js - forces
 「user」から「post」を作ってpostに対して「repost」の返信をする。それに対して「reply」をする..  
 twitterの返信機能をイメージ。  
 D3.jsのforceで「user」が作った「post」で`node`を広げていく。  
+***
 イメージ図
 ![イメージ図](post_app_image_readme.png)
-
+***
 
 # flow
 1. 「user」を作成及び認証

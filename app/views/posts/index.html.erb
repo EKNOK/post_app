@@ -10,7 +10,7 @@
           <li class="list-group-item">
             <span class="badge"><%= post.repost_count %></span>
             <%= post.title %>
-            <div class="text-center">
+            <div class="create-time-name">
               <%= post.user.name %> : <%= simple_time(post.created_at) %>
             </div>
           </li>

@@ -1,0 +1,23 @@
+#acMenu dt{
+    display:block;
+    width:185px;
+    height:50px;
+    line-height:50px;
+    text-align:center;
+    border:#666 1px solid;
+    cursor:pointer;
+    background:url(images/i_swich.png) 177px -69px no-repeat;
+    padding-right:15px;
+    }
+#acMenu dd{
+    background:#f2f2f2;
+    width:200px;
+    height:100%;
+    line-height:50px;
+    text-align:center;
+    border:#666 1px solid;
+    display:none;
+    }
+#acMenu dt.active{
+    background:url(images/i_swich.png) 177px 18px no-repeat;
+    }

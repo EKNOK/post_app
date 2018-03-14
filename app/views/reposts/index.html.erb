@@ -1,2 +1,24 @@
 <h1>Reposts#index</h1>
 <p>Find me in app/views/reposts/index.html.erb</p>
+
+
+<script>
+    $(function(){
+        $("#acMenu dt").on("click", function() {
+            $(this).next().slideToggle();
+            $(this).toggleClass("active");//追加部分
+        });
+    });
+</script>
+<dl id="acMenu">
+    <dt>アコーディオンメニュー1</dt>
+    <dd>
+      <% 3.times do |i| %>
+      <p><%= i %>回目</p>
+      <% end %>
+    </dd>
+    <dt>アコーディオンメニュー2</dt>
+    <dd>アコーディオンメニューが開く。</dd>
+    <dt>アコーディオンメニュー3</dt>
+    <dd>アコーディオンメニューが開く。</dd>
+</dl>

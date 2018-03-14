@@ -5,19 +5,22 @@
   <% if current_user == @post.user  %>
   <h2><%= link_to "postを削除", post_path, method: 'delete' %></h2>
   <% end %>
-  <div class="">
   <% if @reposts %>
+  <ul class="list-group">
     <% @reposts.each do |repost| %>
-    <div class="balloon2-left">
-      <p><%= repost.user.name %> : <%= repost.content %>
-        <% if current_user == repost.user %>
-          <%= link_to "削除", repost_path(repost), method: 'delete' %>
-        <% end %>
-      </p>
-    </div>
+        <li class="list-group-item">
+          <%= repost.content %>
+          <div class="create-time-name">
+            <%= repost.user.name %> : <%= simple_time(repost.created_at) %>
+          </div>
+          <% if current_user == repost.user %>
+              <%= link_to "削除", repost_path(repost), method: 'delete', class: "btn btn-danger btn-xs"%>
+          <% end %>
+        </li>
+      <p class="text-right"><%= link_to "comment", "#", class: "comment_btn" %></p>
     <% end %>
+  </ul>
   <% end %>
-  </div>
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
       <!-- form do -->
