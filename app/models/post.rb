@@ -6,4 +6,10 @@ class Post < ApplicationRecord
   validates :content, presence: true, length:{maximum: 255}
   validates :user_id, presence: true
 
+
+# postについているrepostの数(index)
+  def repost_count
+    reposts.count
+  end
+
 end

@@ -1,7 +1,21 @@
 <div class="col-md-6 col-md-offset-3">
   <h1>Post#index</h1>
-  <% @posts.each do |post| %>
-    <p><%= link_to post.title, post_path(post) %></p>
-  <% end %>
-  <p><%= link_to "post create", new_post_path, class: "btn btn-primary" %></p>
+  <p>下の「Post Create」からpostを作ってみよう</p>
+  <p><%= link_to "Post Create", new_post_path, class: "btn btn-primary" %></p>
+  <p>以下過去Post</p>
+  <div class="col-md-10 col-md-offset-1">
+    <ul class="list-group">
+      <% @posts.each do |post| %>
+        <%= link_to post_path(post) do %>
+          <li class="list-group-item">
+            <span class="badge"><%= post.repost_count %></span>
+            <%= post.title %>
+            <div class="text-center">
+              <%= post.user.name %> : <%= simple_time(post.created_at) %>
+            </div>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
 </div>

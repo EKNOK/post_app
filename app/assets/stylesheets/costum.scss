@@ -118,6 +118,7 @@ h2 {
 p {
   font-size: 1.1em;
   line-height: 1.7em;
+  text-align: center;
 }
 
 #logo {
@@ -349,4 +350,12 @@ span.picture {
 
 .users.follow {
   padding: 0;
+}
+
+// post
+
+.text-center {
+  display: inline-block;
+  color: gray;
+  font-size: 10px;
 }
