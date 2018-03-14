@@ -6,15 +6,17 @@
   <h2><%= link_to "postを削除", post_path, method: 'delete' %></h2>
   <% end %>
   <div class="">
-    <% if @reposts %>
-      <% @reposts.each do |repost| %>
-        <h2><%= repost.user.name %> : <%= repost.content %>
-          <% if current_user == repost.user %>
-            <%= link_to "削除", repost_path(repost), method: 'delete' %>
-          <% end %>
-        </h2>
-      <% end %>
+  <% if @reposts %>
+    <% @reposts.each do |repost| %>
+    <div class="balloon2-left">
+      <p><%= repost.user.name %> : <%= repost.content %>
+        <% if current_user == repost.user %>
+          <%= link_to "削除", repost_path(repost), method: 'delete' %>
+        <% end %>
+      </p>
+    </div>
     <% end %>
+  <% end %>
   </div>
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
