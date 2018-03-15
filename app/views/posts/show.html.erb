@@ -1,32 +1,20 @@
+<!-- jquery toggleの設定 -->
+<script>
+  $(function(){
+    $("#acMenu dt").on("click", function() {
+      $(this).next().slideToggle();
+      $(this).toggleClass("active");
+    });
+  });
+</script>
+
 <div class="col-md-6 col-md-offset-3">
   <h1>Post#show</h1>
   <h1><%= @post.title %></h1>
   <h2><%= @post.content %></h2>
   <% if current_user == @post.user  %>
-  <h2><%= link_to "postを削除", post_path, method: 'delete' %></h2>
+    <h2><%= link_to "postを削除", post_path, method: 'delete',  data: {confirm: "このpostを削除しますか？"} %></h2>
   <% end %>
-  <% if @reposts %>
-  <ul class="list-group">
-    <% @reposts.each do |repost| %>
-        <li class="list-group-item">
-          <%= repost.content %>
-          <div class="create-time-name">
-            <%= repost.user.name %> : <%= simple_time(repost.created_at) %>
-          </div>
-          <% if current_user == repost.user %>
-              <%= link_to "削除", repost_path(repost), method: 'delete', class: "btn btn-danger btn-xs"%>
-          <% end %>
-        </li>
-      <p class="text-right"><%= link_to "comment", "#", class: "comment_btn" %></p>
-    <% end %>
-  </ul>
-  <% end %>
-  <div class="row">
-    <div class="col-md-10 col-md-offset-1">
-      <!-- form do -->
-      <%= render 'reposts/new' %>
-
-      <!-- end -->
-    </div>
-
+  <!-- repostの表示 -->
+  <%= render 'reposts/reposts' %>
 </div>

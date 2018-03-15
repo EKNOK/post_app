@@ -2,7 +2,6 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :post_correct_user, only: [:destroy]
 
-
   def index
     @posts = Post.all
   end
@@ -11,6 +10,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @reposts = @post.reposts.where(post_id: params[:id])
     @repost = @post.reposts.build
+    @comment = current_user.comments.build
   end
 
   def new
@@ -47,5 +47,6 @@ class PostsController < ApplicationController
       redirect_to root_url
     end
   end
+
 
 end

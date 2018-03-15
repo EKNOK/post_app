@@ -1,0 +1,25 @@
+<% if @reposts %>
+  <ul class="list-group">
+    <% @reposts.each do |repost| %>
+      <li class="list-group-item">
+        <%= repost.content %>
+        <% if current_user == repost.user %>
+        / <%= link_to "削除", repost_path(repost), method: 'delete', class: "btn btn-danger btn-xs",  data: {confirm: "このrepostを削除しますか？"} %>
+        <% end %>
+        <div class="create-time-name">
+          <%= repost.user.name %> : <%= simple_time(repost.created_at) %>
+        </div>
+      </li>
+      <!-- commnetの表示 -->
+      <dl id="acMenu">
+        <%= render 'comments/comments', repost_id: repost.id, comments: repost_to_comments(repost.id) %>
+      </dl>
+    <% end %>
+  </ul>
+<% end %>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <!-- repost入力form -->
+    <%= render 'reposts/new' %>
+  </div>
+</div>

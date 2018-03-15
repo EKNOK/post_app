@@ -1,0 +1,24 @@
+<dt>commentを表示
+  <span class="badge"><%= comments.count %></span>
+</dt>
+<dd class="comment-dd">
+  <% comments.each do |comment| %>
+    <p><%= comment.content %></p>
+    <div class="create-time-name">
+      <%= comment.user.name %> : <%= simple_time(comment.created_at) %>
+      <% if current_user == comment.user %>
+      <%= link_to "削除", comment_path(comment), method: 'delete', data: {confirm: "commentを削除しますか？"} %>
+      <% end %>
+    </div>
+  <% end %>
+  <!-- commentsの入力form -->
+  <div class="row">
+    <div class="comments-form">
+      <%= form_for(@comment) do |f| %>
+        <%= f.text_field :content, class: 'form-control comment-form', placeholder: "content" %>
+        <%= f.hidden_field :repost_id, value: repost_id %>
+        <%= f.submit "Repost", class: "btn btn-primary btn-xs comment-btn" %>
+      <% end %>
+    </div>
+  </div>
+</dd>

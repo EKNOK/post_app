@@ -1,23 +1,29 @@
 #acMenu dt{
-    display:block;
-    width:185px;
-    height:50px;
-    line-height:50px;
-    text-align:center;
-    border:#666 1px solid;
-    cursor:pointer;
-    background:url(images/i_swich.png) 177px -69px no-repeat;
-    padding-right:15px;
-    }
+  width:200px;
+  height:100%;
+  line-height:40px;
+  text-align:center;
+  cursor:pointer;
+  transition: all 0.3s;
+  &:hover {
+    color: #0066CC;
+  }
+}
+
 #acMenu dd{
-    background:#f2f2f2;
-    width:200px;
-    height:100%;
-    line-height:50px;
-    text-align:center;
-    border:#666 1px solid;
-    display:none;
-    }
-#acMenu dt.active{
-    background:url(images/i_swich.png) 177px 18px no-repeat;
-    }
+  background:#f2f2f2;
+  padding: 5px 0 ;
+  width:200px;
+  height:100%;
+  line-height: 25px;
+  text-align:center;
+  border: silver 1px solid;
+  border-radius: 5px;
+  display: none;
+}
+
+dl {
+  display:inline-block;
+  float: right;
+  margin-bottom: 0px;
+}

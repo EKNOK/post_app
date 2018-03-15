@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-
+  # comment
+  resources :comments, only:[:index, :create, :destroy]
   # post_forces
   get 'post_forces/index', to: 'post_forces#index'
   get 'post_forces/hoge', to: 'post_forces#hoge'

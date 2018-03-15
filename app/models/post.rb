@@ -12,4 +12,6 @@ class Post < ApplicationRecord
     reposts.count
   end
 
+
+
 end
