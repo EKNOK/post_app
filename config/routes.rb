@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   # post_forces
   get 'post_forces/index', to: 'post_forces#index'
   get 'post_forces/hoge', to: 'post_forces#hoge'
+  get 'post_forces/test', to: 'post_forces#test'
+  get 'post_forces/link', to: 'post_forces#link'
+
   # reposts
   resources :reposts, only:[:create, :destroy, :index]
   # posts

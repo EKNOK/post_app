@@ -21,6 +21,32 @@ class CommentsController < ApplicationController
   end
 
   def index
+    data = {"name": "flare","children": [
+            {"name": "analytics","children": [
+              {"name": "cluster","children": [
+                {"name": "AgglomerativeCluster", "size": 3938},
+                {"name": "CommunityStructure", "size": 3812},
+                {"name": "HierarchicalCluster", "size": 6714},
+                {"name": "MergeEdge", "size": 743}]},
+              {"name": "graph","children": [
+                {"name": "BetweennessCentrality", "size": 3534},
+                {"name": "ShortestPaths", "size": 5914},
+                {"name": "SpanningTree", "size": 3416}]},
+              {"name": "optimization","children": [
+                {"name": "AspectRatioBanker", "size": 7074}]}]},
+            {"name": "animate","children": [
+              {"name": "Easing", "size": 17010},
+              {"name": "FunctionSequence", "size": 5842},
+              {"name": "interpolate","children": [
+                {"name": "ArrayInterpolator", "size": 1983},
+                {"name": "RectangleInterpolator", "size": 2042}]},
+              {"name": "ISchedulable", "size": 1041},
+              {"name": "Parallel", "size": 5176},
+              {"name": "TransitionEvent", "size": 1116},
+              {"name": "Tween", "size": 6006}]}
+            ]}
+            render :json => data
+
   end
 
   private

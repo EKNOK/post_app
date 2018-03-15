@@ -7,7 +7,7 @@ class Post < ApplicationRecord
   validates :user_id, presence: true
 
 
-# postについているrepostの数(index)
+# postについているrepostの数(index) 必要？
   def repost_count
     reposts.count
   end
