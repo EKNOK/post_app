@@ -31,43 +31,28 @@ class PostForcesController < ApplicationController
   end
 
   def link
-    # data = {name: current_user.name, children: []}
-    # @posts = current_user.posts.all
-    # @posts.each do |post|
-    #   @reposts = post.reposts.all
-    #   repost_d = {}
-    #   @reposts.each do |repost|
-    #     repost
-    #   end
-    #   data.push({name: post.title, children:[repost]})
-    # end
+    d_comment = []
+    d_repost = []
+    d_post = []
 
-    data = {"name": "flare","children": [
-            {"name": "analytics","children": [
-              {"name": "cluster","children": [
-                {"name": "AgglomerativeCluster", "size": 3938},
-                {"name": "CommunityStructure", "size": 3812},
-                {"name": "HierarchicalCluster", "size": 6714},
-                {"name": "MergeEdge", "size": 743}]},
-              {"name": "graph","children": [
-                {"name": "BetweennessCentrality", "size": 3534},
-                {"name": "ShortestPaths", "size": 5914},
-                {"name": "SpanningTree", "size": 3416}]},
-              {"name": "optimization","children": [
-                {"name": "AspectRatioBanker", "size": 7074}]}]},
-            {"name": "animate","children": [
-              {"name": "Easing", "size": 17010},
-              {"name": "FunctionSequence", "size": 5842},
-              {"name": "interpolate","children": [
-                {"name": "ArrayInterpolator", "size": 1983},
-                {"name": "RectangleInterpolator", "size": 2042}]},
-              {"name": "ISchedulable", "size": 1041},
-              {"name": "Parallel", "size": 5176},
-              {"name": "TransitionEvent", "size": 1116},
-              {"name": "Tween", "size": 6006}]}
-            ]}
-
+    @posts = current_user.posts.all
+    @posts.each do |post|
+      d_comment = []
+      d_repost = []
+      d_post = []
+      @reposts = post.reposts.all
+      @reposts.each do |repost|
+        @comments = repost.comments.all
+        @comments.each do |comment|
+          d_comment.push({name: comment.content, size: 3000})
+        end
+        d_repost.push(name: repost.content, children: d_comment)
+      end
+      d_post.push(name: post.content, children: d_repost)
+    end
+    data = {name: current_user.name, children: d_post}
     render :json => data
+
   end
 
 
