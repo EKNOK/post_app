@@ -37,20 +37,20 @@ class PostForcesController < ApplicationController
 
     @posts = current_user.posts.all
     @posts.each do |post|
-      d_comment = []
       d_repost = []
       d_post = []
       @reposts = post.reposts.all
       @reposts.each do |repost|
+        d_comment = []
         @comments = repost.comments.all
         @comments.each do |comment|
           d_comment.push({name: comment.content, size: 3000})
         end
-        d_repost.push(name: repost.content, children: d_comment)
+        d_repost.push(name: repost.content, size: 3000, children: d_comment)
       end
-      d_post.push(name: post.content, children: d_repost)
+      d_post.push(name: post.title, size: 5000, children: d_repost)
     end
-    data = {name: current_user.name, children: d_post}
+    data = {name: current_user.name,size: 7000, children: d_post}
     render :json => data
 
   end

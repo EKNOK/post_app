@@ -4,7 +4,7 @@
       <li class="list-group-item">
         <%= repost.content %>
         <% if current_user == repost.user %>
-        / <%= link_to "削除", repost_path(repost), method: 'delete', class: "btn btn-danger btn-xs",  data: {confirm: "このrepostを削除しますか？"} %>
+        / <%= link_to "削除", repost_path(repost), method: 'delete', class: "label label-danger",  data: {confirm: "このrepostを削除しますか？"} %>
         <% end %>
         <div class="create-time-name">
           <%= repost.user.name %> : <%= simple_time(repost.created_at) %>

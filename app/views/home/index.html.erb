@@ -1,3 +1,15 @@
 <h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
-<p><%= link_to "Post_forces#index", post_forces_index_path %></p>
+<div class="home-index-h2 col-md-6 col-md-offset-3">
+  <% unless current_user  %>
+  <h2>1. ユーザー登録をする。<%= link_to "ユーザー登録", new_user_registration_path %></h2>
+  <h2>2. メールの認証をする。(ローカルならサーバーのログ又、メールボックスから)</h2>
+  <h2>まずはここまで行ってください！！！</h2>
+  <% else %>
+  <h2>1. ユーザーの名前を登録する。<%= link_to "名前登録", edit_user_path(current_user.id) %></h2>
+  <h2>2.「Post」を投稿する。 <%= link_to "Postの投稿", new_post_path %></h2>
+  <h2>3. 「repost」を「post」に対して投稿。</h2>
+  <h2>4. 「comment」を「repost」に対して投稿</h2>
+  <h2>5. その「post」の投稿ページにある「force」で表示をクリック</h2>
+  <% end %>
+
+</div>

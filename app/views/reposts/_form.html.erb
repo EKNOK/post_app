@@ -1,7 +1,7 @@
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="btn-block">
     <%= form_for(@repost) do |f| %>
-      <%= f.text_field :content, class: 'form-control', placeholder: "content" %>
+      <%= f.text_field :content, class: 'form-control', placeholder: "repostを投稿する" %>
 
       <%= f.hidden_field :post_id, value: @post.id %>
       <%= f.submit "Repost", class: "btn btn-primary" %>

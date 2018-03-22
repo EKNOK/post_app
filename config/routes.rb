@@ -17,10 +17,10 @@ Rails.application.routes.draw do
   # users
   resources :users, only:[:index, :show, :edit, :update]
 
+  # messages
+  resources :messages, only:[:index, :create, :destroy]
   # HOME
   root to: 'home#index'
-  get '/message', to: 'home#message'
   get 'help', to: 'home#help'
-
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

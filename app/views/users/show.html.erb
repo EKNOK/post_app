@@ -1,8 +1,41 @@
 <h1>Users#show</h1>
-<h2>name: <%= @user.name %></h2>
-<h2>email: <%= @user.email %></h2>
+<div class="user-show-profile col-md-3 col-md-offset-1">
+  <h2>ログイン中のユーザー</h2>
+  <h2><%= @user.name %></h2>
+  <h2><%= @user.email %></h2>
+</div>
 
-<div class="col-md-6 col-md-offset-3">
-  <h2><%= link_to "name edit", edit_user_path(current_user) %></h2>
-  <h2><%= link_to "password email", edit_user_registration_path %></h2>
+
+<div class="col-md-7">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#tab1" data-toggle="tab">Profile編集</a></li>
+    <li><a href="#tab2" data-toggle="tab">投稿したpostを表示</a></li>
+    <li><a href="#tab3" data-toggle="tab">「d3.jsのforce」を表示</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <!-- profile表示 -->
+    <div class="tab-pane active" id="tab1">
+      <p><%= link_to "nameを編集", edit_user_path(current_user) %></p>
+      <p><%= link_to "password,emailを変更する", edit_user_registration_path %></p>
+    </div>
+    <!-- postを表示 -->
+    <div class="tab-pane" id="tab2">
+      <% @posts.each do |post| %>
+        <%= link_to post_path(post) do %>
+          <li class="list-group-item">
+            <span class="badge"><%= post.repost_count %></span>
+            <p><%= post.title %></p>
+            <div class="create-time-name">
+              <%= simple_time(post.created_at) %>
+            </div>
+          </li>
+        <% end %>
+      <% end %>
+    </div>
+    <!-- forceを表示 -->
+    <div class="tab-pane" id="tab3">
+      <%= link_to "postの「d3_force」を表示", post_forces_test_path %>
+    </div>
+  </div>
 </div>

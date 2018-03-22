@@ -11,6 +11,8 @@ gem 'rails', '~> 5.1.5'
 # devise
 gem 'devise'
 gem 'devise-bootstrap-views'
+# postgreSQL
+
 # jquary
 gem 'jquery-rails'
 # bootstrap

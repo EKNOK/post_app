@@ -1,0 +1,21 @@
+<h1>Messages#index</h1>
+<p>メッセージがあればここへ！！</p>
+<div class="col-md-2">
+  <%= render 'new' %>
+</div>
+<div class="messages-index col-md-8 col-md-offset-1">
+  <table class="table table-bordered table-condensed">
+    <tr>
+      <th class="text-left">名前</th>
+      <th class="text-center">メッセージ内容</th>
+      <th class="text-right"></th>
+    </tr>
+    <% @messages.each do |message| %>
+    <tr>
+      <td><%= message.name %></td>
+      <td class="text-center"><%= message.content %></td>
+      <td class="text-center"><%= link_to "削除", message_path(message), method: 'delete', data: {confirm: '本当に削除しますか？'}, class: 'label label-danger' %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>

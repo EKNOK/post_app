@@ -21,16 +21,12 @@ class CommentsController < ApplicationController
   end
 
   def index
-    data = {"name":"knok","children":[
-              {"name":"content02","children":[
-                {"name":"asdf","children":[
-                  {"name":"fff","size":3000},
-                  {"name":"ffffff","size":3000}]},
-              {"name":"asdf","children":[
-                {"name":"fff","size":3000},
-                {"name":"ffffff","size":3000}]
-                }]}]}
-    data
+  end
+
+  private
+
+  def comment_params
+    params.require(:comment).permit(:content, :repost_id)
   end
 
   def comment_connect_user
