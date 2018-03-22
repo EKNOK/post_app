@@ -21,10 +21,5 @@ test:
   database: db/test.sqlite3
 
 production:
-production:
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
-  database: post_app_production
-  username: post_app
-  password: <%= ENV['POST_APP_DATABASE_PASSWORD'] %>
+  url: <%= ENV['postgres://omptzaerkcmdmq:72d240432b3ef5fa52fa4c4585b0047cbc5103993a0bdc711f86977cd7d3a3a9@ec2-54-83-192-68.compute-1.amazonaws.com:5432/dqjtd4r1
+37g49'] %>
